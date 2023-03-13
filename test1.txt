@@ -1,7 +1,26 @@
--,16,12,21,-,-,-
-16,-,-,17,20,-,-
-12,-,-,28,-,31,-
-21,17,28,-,18,19,23
--,20,-,18,-,-,11
--,-,31,19,-,-,27
--,-,-,23,11,27,-
+#project euler140
+from math import sqrt
+def issqr(n):
+    m = int(sqrt(n))
+    if m * m == n:
+        return m
+    return -1
+
+def fibo(n):
+    w = [0, 1]
+    for i in range(2 * n - 2):
+        w.append(w[-1] + w[-2])
+    return w
+
+def g(n):
+    w = [1, 4]
+    for i in range(2 * n - 2):
+        w.append(w[-1] + w[-2])
+    return w
+
+def f(n):
+    a = fibo(n)
+    b = g(n)
+    return a[n] * b[n]
+
+print(f(20))
